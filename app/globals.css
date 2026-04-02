@@ -128,3 +128,29 @@
     @apply font-sans;
   }
 }
+
+/* Landing: avión orbitando el CTA (contrarota para mantener el icono derecho) */
+@keyframes turistito-orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .animate-turistito-orbit {
+    animation: turistito-orbit-rotate 14s linear infinite;
+  }
+  .animate-turistito-orbit-counter {
+    animation: turistito-orbit-rotate 14s linear infinite reverse;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-turistito-orbit,
+  .animate-turistito-orbit-counter {
+    animation: none;
+  }
+}
