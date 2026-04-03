@@ -9,7 +9,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  /* Stardos Stencil — stencil / military / 1940s rugged display */
+  --font-heading: var(--font-stencil);
+  /* Landing: oliva / aventura (#4B5320 y familia) */
+  --color-adventure-olive: #4b5320;
+  --color-adventure-olive-deep: #3d4219;
+  --color-adventure-olive-mid: #5c6630;
+  --color-adventure-olive-light: #6b7538;
+  --color-adventure-sage: #8a9450;
+  --color-adventure-moss: #a3ad6a;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -122,35 +130,49 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
   html {
     @apply font-sans;
   }
+  /* Slight “ink spread” / distressed print feel on stencil headings */
+  .font-heading,
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-stencil), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: 0.04em;
+    text-shadow:
+      0.02em 0 0 color-mix(in oklch, currentColor 12%, transparent),
+      -0.02em 0 0 color-mix(in oklch, currentColor 8%, transparent);
+  }
 }
 
-/* Landing: avión orbitando el CTA (contrarota para mantener el icono derecho) */
-@keyframes turistito-orbit-rotate {
-  from {
-    transform: rotate(0deg);
+/* Animación de fondo: azul marino, bosque y turquesa (global en <body>) */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-@layer utilities {
-  .animate-turistito-orbit {
-    animation: turistito-orbit-rotate 14s linear infinite;
-  }
-  .animate-turistito-orbit-counter {
-    animation: turistito-orbit-rotate 14s linear infinite reverse;
-  }
+.animated-bg {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #002333, #155e75, #065f46, #0d9488);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  background-attachment: fixed;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-turistito-orbit,
-  .animate-turistito-orbit-counter {
+  .animated-bg {
     animation: none;
+    background-position: 50% 50%;
   }
 }
