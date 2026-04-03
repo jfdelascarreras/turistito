@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden text-foreground">
-      {/* Velo ligero: deja ver la animación del gradiente en <body> (.animated-bg) */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 bg-stone-50/35 dark:bg-zinc-950/40"
+        className="pointer-events-none absolute inset-0 z-0 bg-stone-50/78 dark:bg-zinc-950/72"
         aria-hidden
       />
       <div className="relative z-10 flex min-h-screen flex-col">
