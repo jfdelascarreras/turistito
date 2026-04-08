@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import { buttonVariants } from "@/components/ui/button-variants"
 import { cn } from "@/lib/utils"
@@ -9,9 +10,19 @@ export function LandingNavbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="font-heading bg-gradient-to-r from-adventure-olive-deep via-adventure-olive to-adventure-olive-light bg-clip-text text-lg font-semibold tracking-tight text-transparent transition-opacity hover:opacity-90 dark:from-emerald-300 dark:via-adventure-moss dark:to-lime-200"
+          className="flex items-center gap-2 transition-opacity hover:opacity-90"
         >
-          Turistito
+          <Image
+            src="/turistito-logo.png"
+            alt="Logo de Turistito"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full object-cover"
+            priority
+          />
+          <span className="font-heading bg-gradient-to-r from-adventure-olive-deep via-adventure-olive to-adventure-olive-light bg-clip-text text-lg font-semibold tracking-tight text-transparent dark:from-emerald-300 dark:via-adventure-moss dark:to-lime-200">
+            Turistito
+          </span>
         </Link>
         <nav
           className="flex items-center gap-2 sm:gap-3"
