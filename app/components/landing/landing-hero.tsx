@@ -39,7 +39,7 @@ export function LandingHero() {
           </p>
           <h1
             id="turistito-hero-heading"
-            className="font-heading text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]"
+            className="font-heading text-balance text-4xl font-extrabold tracking-tight text-foreground drop-shadow-[0_8px_24px_oklch(0.145_0_0_/_0.2)] sm:text-5xl md:text-6xl lg:text-[3.75rem] lg:leading-[1.05]"
           >
             <span className="bg-gradient-to-r from-primary via-primary/85 to-primary/70 bg-clip-text text-transparent">
               Guía Turístico AI
