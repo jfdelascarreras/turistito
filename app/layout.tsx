@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { Barlow, Geist_Mono, Stardos_Stencil, Inter } from "next/font/google";
+import { Barlow, Geist_Mono, Stardos_Stencil, Inter, JetBrains_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+
+const figtreeHeading = Figtree({subsets:['latin'],variable:'--font-heading'});
+
+const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
 
 /** Industrial sans for body — pairs with stencil headings */
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
@@ -36,13 +40,12 @@ export default function RootLayout({
     <html
       lang="es"
       className={cn(
-        "h-full",
-        "antialiased",
-        inter.variable,
-        stardosStencil.variable,
-        geistMono.variable,
-        "font-sans"
-      )}
+              "h-full",
+              "antialiased",
+              inter.variable,
+              stardosStencil.variable,
+              geistMono.variable
+            , "font-mono", jetbrainsMono.variable, figtreeHeading.variable)}
     >
       <body className={cn("min-h-full flex flex-col antialiased animated-bg")}>
         {children}
