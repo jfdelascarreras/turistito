@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils"
 
 export function LandingNavbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/90">
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-transparent bg-transparent">
       <div className="mx-auto grid h-16 max-w-6xl grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 md:grid-cols-[1fr_auto_1fr] lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 transition-opacity hover:opacity-90"
+          className="flex items-center gap-2 rounded-full bg-background/50 px-2 py-1 backdrop-blur-sm transition-opacity hover:opacity-90"
         >
           <Image
             src="/turistito-logo.png"
@@ -30,19 +30,19 @@ export function LandingNavbar() {
         >
           <Link
             href="#funcionalidades"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            className="rounded-full bg-background/45 px-3 py-1 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:text-primary"
           >
             Funcionalidades
           </Link>
           <Link
             href="#precios"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            className="rounded-full bg-background/45 px-3 py-1 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:text-primary"
           >
             Precios
           </Link>
           <Link
             href="#blog"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            className="rounded-full bg-background/45 px-3 py-1 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:text-primary"
           >
             Blog
           </Link>
@@ -55,7 +55,7 @@ export function LandingNavbar() {
             href="/auth/login"
             className={cn(
               buttonVariants({ variant: "ghost", size: "sm" }),
-              "text-foreground hover:bg-accent hover:text-primary"
+              "bg-background/50 text-foreground backdrop-blur-sm hover:bg-accent hover:text-primary"
             )}
           >
             Login

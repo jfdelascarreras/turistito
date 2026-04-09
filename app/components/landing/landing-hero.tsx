@@ -4,12 +4,9 @@ import { Compass, Sparkles } from "lucide-react"
 import { buttonVariants } from "@/components/ui/button-variants"
 import { cn } from "@/lib/utils"
 
-export function LandingHero() {
+export function LandingHeroBackground() {
   return (
-    <section
-      className="relative overflow-hidden border-b border-border/40 bg-transparent"
-      aria-labelledby="turistito-hero-heading"
-    >
+    <>
       <div
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_85%_55%_at_50%_-15%,oklch(var(--primary)/0.16),transparent)] dark:bg-[radial-gradient(ellipse_85%_55%_at_50%_-15%,oklch(var(--primary)/0.24),transparent)]"
         aria-hidden
@@ -22,8 +19,19 @@ export function LandingHero() {
         className="pointer-events-none absolute -left-24 bottom-0 -z-10 size-[22rem] rounded-full bg-primary/15 blur-3xl dark:bg-primary/10"
         aria-hidden
       />
+    </>
+  )
+}
 
-      <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-center gap-10 px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-14 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:pb-24 lg:pt-16">
+export function LandingHero() {
+  return (
+    <section
+      className="relative overflow-hidden border-b border-border/40 bg-transparent"
+      aria-labelledby="turistito-hero-heading"
+    >
+      <LandingHeroBackground />
+
+      <div className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-10 px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:pb-24 lg:pt-28">
         <div className="flex-1 space-y-6 text-center lg:text-left">
           <p className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-card px-3 py-1 text-xs font-medium text-foreground shadow-sm lg:justify-start">
             <Sparkles className="size-3.5 text-primary" aria-hidden />
