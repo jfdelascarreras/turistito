@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Barlow, Geist_Mono, Stardos_Stencil, Inter, JetBrains_Mono, Figtree } from "next/font/google";
+import { Geist_Mono, Stardos_Stencil, Inter, JetBrains_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const figtreeHeading = Figtree({subsets:['latin'],variable:'--font-heading'});
 
@@ -48,7 +49,7 @@ export default function RootLayout({
             , "font-mono", jetbrainsMono.variable, figtreeHeading.variable)}
     >
       <body className={cn("min-h-full flex flex-col antialiased animated-bg")}>
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );
