@@ -2,6 +2,9 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function updateSession(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+  const isPublicPath = pathname === '/' || pathname.startsWith('/auth')
+
   let supabaseResponse = NextResponse.next({
     request,
   })
@@ -35,13 +38,15 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: If you remove getClaims() and you use server-side rendering
   // with the Supabase client, your users may be randomly logged out.
-  const { data } = await supabase.auth.getClaims()
-  const user = data?.claims
-
-  const isPublicPath =
-    request.nextUrl.pathname === '/' ||
-    request.nextUrl.pathname.startsWith('/login') ||
-    request.nextUrl.pathname.startsWith('/auth')
+  let user: Record<string, unknown> | null = null
+  try {
+    const { data } = await supabase.auth.getClaims()
+    user = data?.claims ?? null
+  } catch {
+    if (isPublicPath) {
+      return supabaseResponse
+    }
+  }
 
   if (!user && !isPublicPath) {
     // no user, potentially respond by redirecting the user to the login page
