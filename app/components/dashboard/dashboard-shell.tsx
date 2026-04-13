@@ -35,7 +35,7 @@ import {
 
 const navItems = [
   { href: "/dashboard", label: "Inicio", icon: Home },
-  { href: "/dashboard/tours", label: "Tours", icon: Map },
+  { href: "/tours", label: "Tours", icon: Map },
   { href: "/dashboard/settings", label: "Ajustes", icon: Settings },
 ] as const
 
@@ -88,14 +88,17 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
           <SidebarMenu>
             <SidebarMenuItem>
               <DropdownMenu>
-                <DropdownMenuTrigger className="w-full outline-none">
-                  <Button
-                    variant="ghost"
-                    className="h-9 w-full justify-start gap-2 px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                  >
-                    <UserCircle className="size-4 shrink-0" />
-                    <span className="truncate">Cuenta</span>
-                  </Button>
+                <DropdownMenuTrigger
+                  render={
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      className="h-9 w-full justify-start gap-2 px-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    />
+                  }
+                >
+                  <UserCircle className="size-4 shrink-0" />
+                  <span className="truncate">Cuenta</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" side="top" className="w-56">
                   <DropdownMenuLabel>Tu cuenta</DropdownMenuLabel>
